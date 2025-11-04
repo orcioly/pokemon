@@ -1,14 +1,17 @@
 {
-  "name": "sinibref",
+  "name": "pokemon",
   "version": "1.0.0",
-  "description": "Prova Técnica - Desenvolvedor Node.js",
+  "description": "API para buscar Pokemons",
   "main": "index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=local ts-node-dev --inspect --transpile-only --ignore-watch node_modules ./src/main/server.ts",
     "build": "tsc",
-    "start": "cross-env NODE_ENV=production node dist/server.js"
+    "postbuild": "copyfiles public/* public/**/* dist",
+    "prestart": "npm run build",
+    "start": "cross-env NODE_ENV=production node dist/main/server.js"
   },
   "dependencies": {
+    "axios": "^1.13.1",
     "class-transformer": "^0.5.1",
     "cors": "^2.8.5",
     "cross-env": "^10.1.0",
@@ -23,7 +26,8 @@
     "@types/node": "^24.9.1",
     "@typescript-eslint/eslint-plugin": "^8.46.3",
     "@typescript-eslint/parser": "^8.46.3",
-    "eslint": "^8.57.1",
+    "copyfiles": "^2.4.1",
+    "eslint": "^9.38.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-import-resolver-typescript": "^4.4.4",
     "eslint-plugin-prettier": "^5.5.4",
