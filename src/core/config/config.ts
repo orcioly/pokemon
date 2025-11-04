@@ -14,6 +14,8 @@ dotenv.config({ path: envFilePath });
 export const config = {
   nodeEnv: process.env.NODE_ENV || 'development',
   server: {
-    port: process.env.PORT || 3334,
+    port: process.env.PORT || 3000,
   },
+  pokeApiBaseUrl:
+    process.env.POKE_API_BASE_URL || 'https://pokeapi.co/api/v2/pokemon',
 };
